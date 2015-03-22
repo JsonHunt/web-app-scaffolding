@@ -1,0 +1,41 @@
+doctype html
+html(ng-app="PublicApp")
+	head
+		title Public site
+		meta(charset="utf-8")
+		meta(name="description",content="website")
+		meta(name="keywords",content="website")
+		meta(name="author",content="Integral Systems Inc.")
+		
+		link(rel="apple-touch-icon" href="/apple-touch-icon.png")
+		link(rel="icon" href="/favicon.ico")
+		link(rel="stylesheet" type="text/css" href="index.css")
+	body(ng-controller="IndexController")
+		.header
+			.logo ''
+			.title Welcome to my website
+			a.signup Sign-up
+			a.login Log-in
+		.navbar
+			.item(
+				ng-class="{active: path == 'features'}"
+				ng-click="goto('features')"
+			) Features
+			.item(
+				ng-class="{active: path == 'contact'}"
+				ng-click="goto('contact')"
+				) Contact			
+		.content(ng-view='')
+			
+		.footer Copyright 2015 Integral Systems Inc.
+
+		script(type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js")
+		script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js")
+		script(type="text/javascript" src="https://code.angularjs.org/1.3.15/angular-route.min.js")
+		script(type="text/javascript" src="http://arshaw.com/xdate/downloads/0.8/xdate.js")
+		script(type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/1.4.0/math.min.js")
+		script(type="text/javascript" src="http://underscorejs.org/underscore-min.js")
+			
+		script(type="text/javascript" src="home/home.js")
+		script(type="text/javascript" src="contact/contact.js")
+		script(type="text/javascript" src="index.js")

@@ -1,0 +1,6 @@
+persistent session
+add angular module, router, etc.
+add utility client libraries: xdate, mathjs, jquery, underscore, velocity
+add node dependencies: twilio, bunyan, xml, xdate, mathjs, underscore, stringjs, mocha, cordova
+add mobile stuff: cordova with angular
+add voice stuff

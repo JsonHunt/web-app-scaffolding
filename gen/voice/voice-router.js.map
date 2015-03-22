@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "voice-router.js",
+  "sourceRoot": "..\\..",
+  "sources": [
+    "src\\voice\\voice-router.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;AAAA,MAAA,WAAA;;AAAA,EAAM;6BAEL;;AAAA,0BAAA,KAAA,GAAO,SAAC,IAAD,GAAA;AACN,MAAA,IAAI,CAAC,GAAL,CAAS,oBAAT,CAAA,CAAA;aACA,IAAI,CAAC,IAAL,CAAU,KAAV,EAFM;IAAA,CAAP,CAAA;;AAAA,0BAIA,GAAA,GAAI,SAAC,IAAD,GAAA;AACH,MAAA,IAAI,CAAC,GAAL,CAAS,SAAT,CAAA,CAAA;aACA,IAAI,CAAC,MAAL,CAAA,EAFG;IAAA,CAJJ,CAAA;;uBAAA;;MAFD,CAAA;AAAA"
+}
