@@ -1,0 +1,22 @@
+form.form
+	
+	div.form-group
+		input#username.form-control(
+			type='text'
+			ng-model="username"
+			placeholder="Username"
+		)
+		
+	div.form-group
+		input.form-control(
+			type='password'
+			ng-model="password"
+			placeholder="Password"
+		)
+		
+	button.btn.btn-primary(
+		ng-click="login()"
+	) Login
+	
+	div(ng-if="error").error {{error}}
+	

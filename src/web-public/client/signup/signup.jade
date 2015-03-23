@@ -1,0 +1,26 @@
+form.form
+	
+	div.form-group
+		input#username.form-control(
+			type='text'
+			ng-model="user.username"
+			placeholder="Username"
+		)
+		
+	div.form-group
+		input.form-control(
+			type='password'
+			ng-model="user.password"
+			placeholder="Password"
+		)
+		
+	div.form-group
+		input.form-control(
+			type='text'
+			ng-model="user.email"
+			placeholder="Email"
+		)
+		
+	button.btn.btn-primary(
+		ng-click="signup()"
+	) Login

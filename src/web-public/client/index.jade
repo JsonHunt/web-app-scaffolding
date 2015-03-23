@@ -7,6 +7,8 @@ html(ng-app="PublicApp")
 		meta(name="keywords",content="website")
 		meta(name="author",content="Integral Systems Inc.")
 		
+		link(rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
+		link(rel="stylesheet" type="text/css" href="lib/ocModal.full.min.css")
 		link(rel="apple-touch-icon" href="/apple-touch-icon.png")
 		link(rel="icon" href="/favicon.ico")
 		link(rel="stylesheet" type="text/css" href="index.css")
@@ -14,8 +16,8 @@ html(ng-app="PublicApp")
 		.header
 			.logo ''
 			.title Welcome to my website
-			a.signup Sign-up
-			a.login Log-in
+			div.signup(ng-click="signup()") Sign-up
+			div.login(ng-click="login()") Log-in
 		.navbar
 			.item(
 				ng-class="{active: path == 'features'}"
@@ -35,7 +37,11 @@ html(ng-app="PublicApp")
 		script(type="text/javascript" src="http://arshaw.com/xdate/downloads/0.8/xdate.js")
 		script(type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/1.4.0/math.min.js")
 		script(type="text/javascript" src="http://underscorejs.org/underscore-min.js")
+		script(type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
+		script(type="text/javascript" src="lib/ocModal.min.js")
 			
 		script(type="text/javascript" src="home/home.js")
 		script(type="text/javascript" src="contact/contact.js")
+		script(type="text/javascript" src="signup/signup.js")
+		script(type="text/javascript" src="login/login.js")
 		script(type="text/javascript" src="index.js")
