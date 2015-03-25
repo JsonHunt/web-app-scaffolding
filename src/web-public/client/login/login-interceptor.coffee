@@ -1,4 +1,4 @@
-@app.factory 'loginInterceptor', ($q, $modal, $injector) ->
+module.exports = LoginInterceptor = ($q, $modal, $injector) ->
 	'self': this
 	'request': (config) -> config
 	'requestError': (rejection) -> $q.reject rejection
@@ -7,7 +7,7 @@
 			def = $q.defer()
 			modalInstance = $modal.open
 				templateUrl : 'login/login.html'
-				controller : LoginController
+				controller : require './login'
 
 			modalInstance.result.then (result)->
 				$http = $injector.invoke ($http)->
@@ -16,7 +16,7 @@
 					def.resolve(secondResponse)
 			, ()->
 				def.reject("NOT AUTHORIZED")
-			
+
 			# $ocModal.open
 			# 	id: 'modal1',
 			# 	url: 'login/login.html'
@@ -31,7 +31,3 @@
 		else
 			response
 	'responseError': (rejection) -> $q.reject rejection
-
-@app.config ['$httpProvider', ($httpProvider) ->
-	$httpProvider.interceptors.push 'loginInterceptor'
-]

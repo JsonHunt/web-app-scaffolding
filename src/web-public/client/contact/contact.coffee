@@ -1,4 +1,4 @@
-@contactController = ($scope) ->
+module.exports = ContactController = ($scope) ->
 
 
-@contactController.$inject = [ '$scope' ]
+ContactController.$inject = [ '$scope' ]

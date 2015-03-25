@@ -1,5 +1,5 @@
 
-<form class="form login">
+<form ng-show="!resetting" class="form login">
   <div class="form-group">
     <input id="username" type="text" ng-model="username" placeholder="Username" class="form-control"/>
   </div>
@@ -12,3 +12,22 @@
   </div>
   <div ng-if="error" class="error">{{error}}</div>
 </form>
+<div ng-show="resetting" class="passreset">
+  <div ng-show="!sent">
+    <div class="title">We will send you a password-reset link </div>
+    <form class="form">
+      <div class="form-group">
+        <input type="text" ng-model="email" placeholder="Email" class="focusme form-control"/>
+      </div>
+      <div class="buttons">
+        <button ng-click="resetContinue()" class="btn btn-warning">Continue</button>
+        <button ng-click="resetCancel()" class="btn btn-default">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <div ng-if="sent">
+    <div>Email sent</div>
+    <button ng-click="cancelReset()" class="btn btn-success">OK</button>
+  </div>
+  <div ng-if="error" class="error">{{error}}</div>
+</div>

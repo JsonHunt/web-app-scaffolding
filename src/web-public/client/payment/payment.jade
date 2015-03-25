@@ -1,0 +1,27 @@
+div.title Credit Card Payment
+
+form.form-inline(ng-show="!confirmed")
+	div.form-group
+		input.amount.form-control(
+			type='text'
+			ng-model="amount"
+			placeholder= "Amount $US"
+		)
+	button.btn.btn-primary(
+		ng-click="pay()"
+	) Continue
+	button.btn.btn-default(
+		ng-click="cancel()"
+	) Cancel
+	
+	div.error(ng-show="error") {{error}}
+
+div(ng-show="confirmed")
+	div.alert All done
+	button.btn.btn-success(
+		ng-click="close()"
+	) OK
+	
+
+		
+	

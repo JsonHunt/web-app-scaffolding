@@ -1,0 +1,14 @@
+
+<div class="title">Credit Card Payment</div>
+<form ng-show="!confirmed" class="form-inline">
+  <div class="form-group">
+    <input type="text" ng-model="amount" placeholder="Amount $US" class="amount form-control"/>
+  </div>
+  <button ng-click="pay()" class="btn btn-primary">Continue</button>
+  <button ng-click="cancel()" class="btn btn-default">Cancel</button>
+  <div ng-show="error" class="error">{{error}}</div>
+</form>
+<div ng-show="confirmed">
+  <div class="alert">All done</div>
+  <button ng-click="close()" class="btn btn-success">OK</button>
+</div>

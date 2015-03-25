@@ -1,4 +1,4 @@
-@ChangePasswordController = ($scope, $http, $location) ->
+module.exports = ChangePasswordController = ($scope, $http, $location) ->
 
 	$scope.changePassword = ()->
 		if !$scope.newpass or $scope.newpass.length is 0
@@ -21,4 +21,5 @@
 		$location.path("/")
 
 
-@ChangePasswordController.$inject = [ '$scope', '$http', '$location' ]
+ChangePasswordController.$inject = [ '$scope', '$http', '$location' ]
+# module.exports = ChangePasswordController

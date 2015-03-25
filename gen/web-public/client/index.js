@@ -21,7 +21,7 @@
     }
   ]);
 
-  IndexController = function($scope, $location, $ocModal, $http) {
+  IndexController = function($scope, $location, $ocModal, $http, $modal) {
     $scope.getLogin = function() {
       return $http.get("/rest/getLogin").success(function(data, status, headers, config) {
         $scope.user = data.user;
@@ -34,13 +34,13 @@
       return $location.path(path);
     };
     $scope.login = function() {
-      return $ocModal.open({
-        id: 'modal1',
-        url: 'login/login.html',
-        controller: 'LoginController',
-        onClose: function(user) {
-          return $scope.user = user;
-        }
+      var modalInstance;
+      modalInstance = $modal.open({
+        templateUrl: 'login/login.html',
+        controller: LoginController
+      });
+      return modalInstance.result.then(function(result) {
+        return $scope.user = result;
       });
     };
     $scope.signup = function() {
@@ -50,6 +50,13 @@
         controller: 'SignupController'
       });
     };
+    $scope.pay = function(description, amount) {
+      return $ocModal.open({
+        id: 'modalpay',
+        url: 'payment/payment.html',
+        controller: 'PaymentController'
+      });
+    };
     return $scope.logout = function() {
       return $http.post("/rest/logout").success(function(data, status, headers, config) {
         return delete $scope.user;
@@ -57,7 +64,7 @@
     };
   };
 
-  IndexController.$inject = ['$scope', '$location', '$ocModal', '$http'];
+  IndexController.$inject = ['$scope', '$location', '$ocModal', '$http', '$modal'];
 
   app.controller('IndexController', IndexController);
 

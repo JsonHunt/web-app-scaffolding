@@ -1,4 +1,4 @@
-@HomeController = ($scope) ->
+module.exports = HomeController = ($scope) ->
 
 
-@HomeController.$inject = [ '$scope' ]
+HomeController.$inject = [ '$scope' ]

@@ -1,4 +1,4 @@
-@LoginController = ($scope,$ocModal,$http,$modalInstance, $injector) ->
+module.exports = LoginController = ($scope,$ocModal,$http,$modalInstance, $injector) ->
 
 	setTimeout ()->
 		$('#username').focus()
@@ -16,13 +16,40 @@
 			if data.error
 				$scope.error = data.error
 			else
-				$modalInstance.close 'OK'
+				$modalInstance.close data.user
 
 	$scope.passwordReset = ()->
-		$ocModal.close()
-		$ocModal.open
-			id: 'modal2',
-			url: 'password-reset/password-reset.html'
-			controller: 'PasswordResetController'
+		$scope.resetting = true
+		delete $scope.error
+		setTimeout ()->
+			$('.focusme').focus()
+		,100
+		# $ocModal.open
+		# 	id: 'modal2',
+		# 	url: 'password-reset/password-reset.html'
+		# 	controller: require './../password-reset/password-reset'
 
-@LoginController.$inject = [ '$scope','$ocModal','$http','$modalInstance','$injector' ]
+	$scope.resetContinue = ()->
+		if not $scope.email or $scope.email.length is 0
+			$scope.error = "Email is required"
+			return
+
+		$http.post "/rest/requestPasswordReset",
+			email: $scope.email
+		.success (data,status,headers,config)->
+			$scope.error = data.error
+			if !data.error
+				$scope.sent = true
+		.error (data,status,headers,config)-> $scope.error = data
+
+	$scope.close = ()->
+		$ocModal.close()
+
+	$scope.resetCancel = ()->
+		$scope.resetting = false
+		delete $scope.error
+		setTimeout ()->
+			$('#username').focus()
+		,100
+
+LoginController.$inject = [ '$scope','$ocModal','$http','$modalInstance','$injector' ]

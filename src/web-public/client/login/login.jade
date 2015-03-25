@@ -1,4 +1,4 @@
-form.form.login
+form.form.login(ng-show="!resetting")
 	div.form-group
 		input#username.form-control(
 			type='text'
@@ -23,3 +23,29 @@ form.form.login
 	
 	div(ng-if="error").error {{error}}
 	
+div.passreset(ng-show="resetting")
+	div(ng-show="!sent")
+		div.title We will send you a password-reset link 
+
+		form.form
+			div.form-group
+				input.focusme.form-control(
+					type='text'
+					ng-model="email"
+					placeholder= "Email"
+				)
+			div.buttons
+				button.btn.btn-warning(
+					ng-click="resetContinue()"
+				) Continue
+				button.btn.btn-default(
+					ng-click="resetCancel()"
+				) Cancel
+				
+	div(ng-if="sent")
+		div Email sent
+		button.btn.btn-success(
+			ng-click="cancelReset()"
+		) OK
+
+	div.error(ng-if="error") {{error}}

@@ -1,4 +1,4 @@
-@SignupController = ($scope,$ocModal,$http) ->
+module.exports = SignupController = ($scope,$ocModal,$http) ->
 
 	setTimeout ()->
 		$('#username').focus()
@@ -17,5 +17,4 @@
 	$scope.close = ()->
 		$ocModal.close()
 
-
-@SignupController.$inject = [ '$scope','$ocModal','$http']
+SignupController.$inject = [ '$scope','$ocModal','$http']
