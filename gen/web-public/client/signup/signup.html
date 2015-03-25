@@ -1,5 +1,5 @@
 
-<form class="form">
+<form ng-if="!sent" class="form">
   <div class="form-group">
     <input id="username" type="text" ng-model="user.username" placeholder="Username" class="form-control"/>
   </div>
@@ -9,5 +9,11 @@
   <div class="form-group">
     <input type="text" ng-model="user.email" placeholder="Email" class="form-control"/>
   </div>
-  <button ng-click="signup()" class="btn btn-primary">Login</button>
+  <button ng-click="signup()" class="btn btn-primary">Sign Up</button>
+  <div>{{error}}</div>
 </form>
+<div ng-if="sent" class="confirmation"> 
+  <div>We have sent you a verification email. </div>
+  <div>Please click on the link to activate your account.</div>
+  <button ng-click="close()" class="btn btn-success">OK</button>
+</div>

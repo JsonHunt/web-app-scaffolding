@@ -11,13 +11,17 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="login/login.css">
+    <link rel="stylesheet" type="text/css" href="password-reset/password-reset.css">
   </head>
-  <body ng-controller="IndexController">
+  <body ng-controller="IndexController" ng-cloak="">
     <div class="header">
       <div class="logo">''</div>
       <div class="title">Welcome to my website</div>
-      <div ng-click="signup()" class="signup">Sign-up</div>
-      <div ng-click="login()" class="login">Log-in</div>
+      <div ng-if="checked &amp;&amp; user" class="username">{{user.username}}</div>
+      <div ng-if="checked &amp;&amp; user" ng-click="logout()" class="logout">Log-out</div>
+      <div ng-if="checked &amp;&amp; !user" ng-click="signup()" class="signup">Sign-up</div>
+      <div ng-if="checked &amp;&amp; !user" ng-click="login()" class="login">Log-in</div>
     </div>
     <div class="navbar">
       <div ng-class="{active: path == 'features'}" ng-click="goto('features')" class="item">Features</div>
@@ -32,11 +36,15 @@
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/1.4.0/math.min.js"></script>
     <script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/ui-bootstrap-tpls-0.11.0.js"></script>
     <script type="text/javascript" src="lib/ocModal.min.js"></script>
     <script type="text/javascript" src="home/home.js"></script>
     <script type="text/javascript" src="contact/contact.js"></script>
     <script type="text/javascript" src="signup/signup.js"></script>
     <script type="text/javascript" src="login/login.js"></script>
+    <script type="text/javascript" src="password-reset/password-reset.js"></script>
+    <script type="text/javascript" src="change-password/change-password.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="login/login-interceptor.js"></script>
   </body>
 </html>

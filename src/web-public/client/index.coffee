@@ -1,4 +1,4 @@
-app = angular.module 'PublicApp', [ 'ngRoute','oc.modal']
+@app = app = angular.module 'PublicApp', [ 'ngRoute','oc.modal','ui.bootstrap']
 app.config ['$routeProvider', ($routeProvider)->
 
 	$routeProvider.when '/',
@@ -7,12 +7,22 @@ app.config ['$routeProvider', ($routeProvider)->
 	.when '/contact',
 		controller : 'contactController'
 		templateUrl : '/contact/contact.html'
-
+	.when '/change-password',
+			controller : 'ChangePasswordController'
+			templateUrl : '/change-password/change-password.html'
 	.otherwise
 		redirectTo : '/'
 ]
 
-IndexController = ($scope,$location,$ocModal) ->
+IndexController = ($scope,$location,$ocModal,$http) ->
+
+	$scope.getLogin = ()->
+		$http.get "/rest/getLogin"
+		.success (data,status,headers,config)->
+			$scope.user = data.user
+			$scope.checked = true
+
+	$scope.getLogin()
 
 	$scope.goto = (path)->
 		$scope.path = path
@@ -23,6 +33,8 @@ IndexController = ($scope,$location,$ocModal) ->
 			id: 'modal1',
 			url: 'login/login.html'
 			controller: 'LoginController'
+			onClose: (user)->
+				$scope.user = user
 
 	$scope.signup = ()->
 		$ocModal.open
@@ -30,10 +42,16 @@ IndexController = ($scope,$location,$ocModal) ->
 			url: 'signup/signup.html'
 			controller: 'SignupController'
 
-IndexController.$inject = [ '$scope','$location','$ocModal' ]
+	$scope.logout = ()->
+		$http.post "/rest/logout"
+		.success (data,status,headers,config)-> delete $scope.user
+
+IndexController.$inject = [ '$scope','$location','$ocModal','$http']
 
 app.controller 'IndexController', IndexController
 app.controller 'HomeController', HomeController
 app.controller 'contactController', contactController
 app.controller 'LoginController', LoginController
 app.controller 'SignupController', SignupController
+app.controller 'PasswordResetController', PasswordResetController
+app.controller 'ChangePasswordController', ChangePasswordController

@@ -1,15 +1,21 @@
-@SignupController = ($scope,$ocModal,$http,$location) ->
+@SignupController = ($scope,$ocModal,$http) ->
 
 	setTimeout ()->
 		$('#username').focus()
 	,100
 
 	$scope.signup = ()->
-		$http.post "/rest/pub/signup",
+		$http.post "/rest/signup",
 			user: $scope.user
 		.error (data,status,headers,config)-> $scope.error = data
 		.success (data,status,headers,config)->
-			$ocModal.close()
-			$location.path("/private/dupadupa.html")
+			if data.error
+				$scope.error = data.error
+			else
+				$scope.sent = true
 
-@SignupController.$inject = [ '$scope','$ocModal','$http','$location' ]
+	$scope.close = ()->
+		$ocModal.close()
+
+
+@SignupController.$inject = [ '$scope','$ocModal','$http']

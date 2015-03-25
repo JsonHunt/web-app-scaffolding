@@ -1,5 +1,4 @@
-form.form
-	
+form.form.login
 	div.form-group
 		input#username.form-control(
 			type='text'
@@ -13,10 +12,14 @@ form.form
 			ng-model="password"
 			placeholder="Password"
 		)
-		
-	button.btn.btn-primary(
-		ng-click="login()"
-	) Login
+	
+	div.buttons
+		button.btn.btn-primary(
+			ng-click="login()"
+		) Login
+		button.btn.btn-default(
+			ng-click="passwordReset()"
+		) I forgot my password
 	
 	div(ng-if="error").error {{error}}
 	

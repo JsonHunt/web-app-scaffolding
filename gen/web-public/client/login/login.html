@@ -1,11 +1,14 @@
 
-<form class="form">
+<form class="form login">
   <div class="form-group">
     <input id="username" type="text" ng-model="username" placeholder="Username" class="form-control"/>
   </div>
   <div class="form-group">
     <input type="password" ng-model="password" placeholder="Password" class="form-control"/>
   </div>
-  <button ng-click="login()" class="btn btn-primary">Login</button>
+  <div class="buttons">
+    <button ng-click="login()" class="btn btn-primary">Login</button>
+    <button ng-click="passwordReset()" class="btn btn-default">I forgot my password</button>
+  </div>
   <div ng-if="error" class="error">{{error}}</div>
 </form>

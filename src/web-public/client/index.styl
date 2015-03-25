@@ -8,6 +8,9 @@ body
 	display flex
 	flex-direction column
 
+.btn
+	min-width 100px
+
 .header
 	background-color #CCC
 	padding 10px
@@ -22,7 +25,9 @@ body
 		font-family 'Arial,helvetica,sans-serif'
 		font-size: 20px
 		flex 1
-	.signup, .login
+	.username
+		padding 10px
+	.signup, .login, .logout
 		padding 10px
 		border 1px solid black
 		margin-left 2px
@@ -35,6 +40,7 @@ body
 	border-top: 1px solid white
 	border-bottom: 1px solid white
 	display flex
+	align-items: center
 	justify-content: flex-end
 	.item
 		padding: 10px 30px
@@ -45,7 +51,7 @@ body
 		&:hover
 			background-color #DDD
 	.item.active
-		background-color #AAA	
+		background-color #AAA
 
 .content
 	flex 1
@@ -60,3 +66,16 @@ body
 	text-transform uppercase
 	text-align center
 	border-top 1px solid #ccc
+
+.form.center
+	margin auto
+	width 500px
+	padding: 10px
+	border: 1px solid #ccc
+	background-color: #ddd
+
+.error
+	padding: 10px
+	color: red
+	border 1px solid red
+	margin: 10px 0

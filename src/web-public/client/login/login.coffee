@@ -1,16 +1,28 @@
-@LoginController = ($scope,$ocModal,$http) ->
+@LoginController = ($scope,$ocModal,$http,$modalInstance, $injector) ->
 
 	setTimeout ()->
 		$('#username').focus()
 	,100
 
 	$scope.login = ()->
-		$http.post "/rest/pub/login",
-			username: $scope.username
-			password: $scope.password
+		$http = $injector.invoke(($http) ->
+			$http
+		)
+		$http.post 'rest/login',
+			username: @username
+			password: @password
 		.error (data,status,headers,config)-> $scope.error = data
 		.success (data,status,headers,config)->
-			$ocModal.close()
-			$scope.goto('/private')
+			if data.error
+				$scope.error = data.error
+			else
+				$modalInstance.close 'OK'
 
-@LoginController.$inject = [ '$scope','$ocModal','$http' ]
+	$scope.passwordReset = ()->
+		$ocModal.close()
+		$ocModal.open
+			id: 'modal2',
+			url: 'password-reset/password-reset.html'
+			controller: 'PasswordResetController'
+
+@LoginController.$inject = [ '$scope','$ocModal','$http','$modalInstance','$injector' ]

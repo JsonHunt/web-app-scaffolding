@@ -12,12 +12,18 @@ html(ng-app="PublicApp")
 		link(rel="apple-touch-icon" href="/apple-touch-icon.png")
 		link(rel="icon" href="/favicon.ico")
 		link(rel="stylesheet" type="text/css" href="index.css")
-	body(ng-controller="IndexController")
+		link(rel="stylesheet" type="text/css" href="login/login.css")
+		link(rel="stylesheet" type="text/css" href="password-reset/password-reset.css")
+	body(ng-controller="IndexController",ng-cloak='')
 		.header
 			.logo ''
 			.title Welcome to my website
-			div.signup(ng-click="signup()") Sign-up
-			div.login(ng-click="login()") Log-in
+	
+			
+			div.username(ng-if="checked && user") {{user.username}}
+			div.logout(ng-if="checked && user", ng-click="logout()") Log-out
+			div.signup(ng-if="checked && !user", ng-click="signup()") Sign-up
+			div.login(ng-if="checked && !user", ng-click="login()") Log-in
 		.navbar
 			.item(
 				ng-class="{active: path == 'features'}"
@@ -38,10 +44,14 @@ html(ng-app="PublicApp")
 		script(type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/1.4.0/math.min.js")
 		script(type="text/javascript" src="http://underscorejs.org/underscore-min.js")
 		script(type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
+		script(type="text/javascript" src="lib/ui-bootstrap-tpls-0.11.0.js")
 		script(type="text/javascript" src="lib/ocModal.min.js")
 			
 		script(type="text/javascript" src="home/home.js")
 		script(type="text/javascript" src="contact/contact.js")
 		script(type="text/javascript" src="signup/signup.js")
 		script(type="text/javascript" src="login/login.js")
+		script(type="text/javascript" src="password-reset/password-reset.js")
+		script(type="text/javascript" src="change-password/change-password.js")
 		script(type="text/javascript" src="index.js")
+		script(type="text/javascript" src="login/login-interceptor.js")
