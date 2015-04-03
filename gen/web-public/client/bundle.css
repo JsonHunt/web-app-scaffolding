@@ -5,8 +5,93 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
+}
+.app {
   display: flex;
   flex-direction: column;
+}
+.app >.header {
+  background-color: #007af4;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.app >.header >.logo {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000;
+  margin-right: 20px;
+}
+.app >.header >.title {
+  font-family: 'Days One', sans-serif;
+  font-size: 20px;
+  flex: 1;
+  cursor: default;
+}
+.app >.header >.area {
+  padding: 10px;
+  text-align: center;
+  min-width: 80px;
+  border: 1px outset #007af4;
+  margin-left: 2px;
+  cursor: default;
+}
+.app >.header >.button {
+  padding: 10px;
+  text-align: center;
+  min-width: 80px;
+  border: 1px outset #007af4;
+  margin-left: 2px;
+  cursor: pointer;
+}
+.app >.header >.button:hover {
+  background-color: #3696f7;
+}
+.app >.header .balance {
+  margin-left: 0;
+  border-left: 0;
+}
+.app >.header .pay {
+  margin-left: 0;
+  margin-right: 10px;
+  border-left: 0;
+}
+.app >.nav {
+  background-color: #3696f7;
+  border-top: 1px solid #007af4;
+  border-bottom: 1px solid #3696f7;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.app >.nav .item {
+  padding: 10px 30px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  border-left: 1px solid #6fb3f7;
+}
+.app >.nav .item:hover {
+  background-color: #6fb3f7;
+  color: #fff;
+}
+.app >.nav .item.active {
+  background-color: #007af4;
+  color: #fff;
+}
+.app >.content {
+  flex: 1;
+  padding: 10px;
+}
+.app >.footer {
+  padding: 10px;
+  color: #3696f7;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  border-top: 1px solid #6fb3f7;
 }
 .noselect {
   -webkit-touch-callout: none;
@@ -19,12 +104,46 @@ body {
 .btn {
   min-width: 100px;
 }
-.form.center {
-  margin: auto;
-  width: 500px;
+.panel {
+  border: 1px solid #3696f7;
+  margin: 10px 0;
+}
+.panel .header {
+  background-color: #3696f7;
+  color: #fff;
   padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #ddd;
+}
+.panel .body {
+  padding: 10px;
+  text-align: left;
+}
+.panel .footer {
+  border-top: 1px solid #6fb3f7;
+  padding: 10px;
+}
+table {
+  border: 1px solid #3696f7;
+  border-radius: 5px;
+}
+table tr th {
+  background-color: #3696f7;
+  font-weight: normal;
+  text-align: inherit;
+  color: #fff;
+  padding: 10px;
+}
+table tr td {
+  padding: 10px;
+  border: 1px solid #6fb3f7;
+}
+.middle {
+  margin: 10px auto;
+  width: 500px;
+  text-align: center;
+}
+.form-group label {
+  margin: 10px 0 2px 0;
+  font-size: 12px;
 }
 .error {
   padding: 10px;
@@ -32,102 +151,7 @@ body {
   border: 1px solid #f00;
   margin: 10px 0;
 }
-.title {
-  border-bottom: 1px solid #ccc;
-  padding: 5px;
-  margin-bottom: 10px;
-}
-.header {
-  background-color: #ccc;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-}
-.header .logo {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #000;
-  margin-right: 20px;
-}
-.header .title {
-  font-family: 'Arial,helvetica,sans-serif';
-  font-size: 20px;
-  flex: 1;
-}
-.header .username {
-  padding: 10px;
-}
-.header .signup,
-.header .login,
-.header .logout,
-.header .balance,
-.header .pay,
-.header .username {
-  padding: 10px;
-  border: 1px solid #000;
-  margin-left: 2px;
-  cursor: pointer;
-}
-.header .signup:hover,
-.header .login:hover,
-.header .logout:hover,
-.header .balance:hover,
-.header .pay:hover,
-.header .username:hover {
-  background-color: #ddd;
-}
-.header .balance {
-  min-width: 80px;
-  margin-left: 0;
-  border-left: 0;
-}
-.header .pay {
-  margin-left: 0;
-  margin-right: 10px;
-  border-left: 0;
-}
-.navbar {
-  background-color: #ccc;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-.navbar .item {
-  padding: 10px 30px;
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-  border-left: 1px solid #fff;
-}
-.navbar .item:hover {
-  background-color: #ddd;
-}
-.navbar .item.active {
-  background-color: #aaa;
-}
-.content {
-  flex: 1;
-  padding: 10px;
-}
-.footer {
-  padding: 10px;
-  color: #666;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  border-top: 1px solid #ccc;
-}
-.form.login .buttons {
-  display: flex;
-  justify-content: space-between;
-}
-.form.login .buttons button {
-  min-width: 200px;
-}
-.passreset .buttons {
-  display: flex;
-  justify-content: space-between;
+.section.header {
+  padding: 10px 0 5px 0;
+  border-bottom: 1px solid #6fb3f7;
 }

@@ -6,7 +6,7 @@
 		"src/**/*.coffee : browserify gen/web-public/client/app.js > gen/web-public/client/bundle.js",
 		"src/**/*.jade   : jade -P {relPath}{filename} -o gen{relPathNoRoot}",
 		"src/**/*.styl   : file-merge -r src -i **/*.styl -e **/bundle.styl -o src/web-public/client/bundle.styl",
-		"src/**/*.styl   : stylus src/web-public/client/bundle.styl --out gen/web-public/client/bundle.css"
-
+		"src/**/*.styl   : stylus src/web-public/client/bundle.styl --out gen/web-public/client/bundle.css",
+		"node_modules/web-app-modules/*/client : echo There is one"
 	]
 }

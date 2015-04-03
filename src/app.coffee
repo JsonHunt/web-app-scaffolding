@@ -7,6 +7,8 @@ bodyParser = require('body-parser')
 session = require('express-session')
 SessionStore = require('express-mysql-session')
 
+mod = require 'web-app-modules/gen/server'
+
 app = express()
 
 # view engine setup
@@ -34,12 +36,23 @@ app.use(session({
 		saveUninitialized: true
 }))
 
+authorizeAdmin = (req,res,next)->
+	if req.session.administrator
+		next()
+	else
+		res.send "NOT AUTHENTICATED"
+
+authorizeUser = (req,res,next)->
+	if req.session.appuser
+		next()
+	else
+		res.send "NOT AUTHENTICATED"
+
 app.use express.static(path.join(__dirname, 'web-public/client'))
-app.use '/admin', express.static(path.join(__dirname, 'web-admin/client'))
-app.use '/private', express.static(path.join(__dirname, 'web-private/client'))
-app.use '/rest', require './web-public/server/router'
-app.use '/admin/rest', require './web-admin/server/router'
-app.use '/private/rest', require './web-private/server/router'
+app.use '/rest', authorizeUser, require './web-public/server/router'
+
+app.use '/module/auth', mod.auth
+app.use '/module/payment', mod.payment
 
 # catch 404 and forward to error handler
 app.use (req, res, next) ->

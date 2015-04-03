@@ -8,89 +8,10 @@
 
   router = express.Router();
 
-  router.use('/getLogin', function(req, res, next) {
-    var ref;
+  router.use('/getPrivateUserData', function(req, res, next) {
     return res.json({
-      user: (ref = req.session) != null ? ref.appuser : void 0
+      data: "This is for private eyes only"
     });
-  });
-
-  router.use('/login', function(req, res, next) {
-    var e;
-    try {
-      return service.login(req.body.username, req.body.password, function(err, user) {
-        if (!err && user) {
-          req.session.appuser = user;
-        }
-        return res.json({
-          error: err,
-          user: user
-        });
-      });
-    } catch (_error) {
-      e = _error;
-      return res.json({
-        error: e
-      });
-    }
-  });
-
-  router.use('/logout', function(req, res, next) {
-    delete req.session.appuser;
-    return res.send('ok');
-  });
-
-  router.use('/signup', function(req, res, next) {
-    return service.signup(req.body.user, function(err, user) {
-      return res.json({
-        error: err,
-        user: user
-      });
-    });
-  });
-
-  router.use('/activateAccount', function(req, res, next) {
-    var code;
-    code = req.query.code;
-    return service.activateUser(code, function(err) {
-      return res.json({
-        error: err
-      });
-    });
-  });
-
-  router.use('/requestPasswordReset', function(req, res, next) {
-    return service.requestPasswordReset(req.body.email, function(err) {
-      return res.json({
-        error: err
-      });
-    });
-  });
-
-  router.use('/resetPassword', function(req, res, next) {
-    return service.resetPassword(req.query.code, function(err, user) {
-      if (err) {
-        return res.redirect("reset-password-error.html");
-      } else {
-        req.session.appuser = user;
-        return res.redirect("/#/change-password");
-      }
-    });
-  });
-
-  router.use('/changePassword', function(req, res, next) {
-    var password, user;
-    user = req.session.appuser;
-    if (!user) {
-      return res.send("NOT AUTHENTICATED");
-    } else {
-      password = req.body.password;
-      return service.changePassword(user, password, function(err) {
-        return res.json({
-          error: err
-        });
-      });
-    }
   });
 
   module.exports = router;

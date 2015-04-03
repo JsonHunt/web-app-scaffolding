@@ -6,13 +6,13 @@
     setTimeout(function() {
       return $('.amount').focus();
     }, 100);
-    $scope.pay = function() {
-      var handler, ref, ref1;
-      if (!((ref = $scope.payment) != null ? ref.amount : void 0) || ((ref1 = $scope.payment) != null ? ref1.amount.length : void 0) === 0) {
+    $scope.dopay = function() {
+      var handler;
+      if (!this.amount || this.amount.length === 0) {
         $scope.error = "Amount is required";
         return;
       }
-      if (isNaN($scope.payment.amount)) {
+      if (isNaN(this.amount)) {
         $scope.error = "Amount must be a number";
         return;
       }
@@ -33,11 +33,12 @@
           });
         }
       });
-      return handler.open({
+      handler.open({
         name: 'Webapp',
         description: 'Webapp subscription',
-        amount: $scope.payment.amount * 100
+        amount: this.amount * 100
       });
+      return $scope.wait = true;
     };
     $scope.cancel = function() {
       return $modalInstance.close();

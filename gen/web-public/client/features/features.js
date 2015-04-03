@@ -2,8 +2,15 @@
 (function() {
   var FeaturesController;
 
-  module.exports = FeaturesController = function($scope) {};
+  module.exports = FeaturesController = function($scope, $http) {
+    return $http.post("/rest/getPrivateUserData").success(function(data, status, headers, config) {
+      $scope.data = data.data;
+      return $scope.error = data.error;
+    }).error(function(data, status, headers, config) {
+      return $scope.error = data;
+    });
+  };
 
-  FeaturesController.$inject = ['$scope'];
+  FeaturesController.$inject = ['$scope', '$http'];
 
 }).call(this);
