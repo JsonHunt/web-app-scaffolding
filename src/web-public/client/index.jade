@@ -3,38 +3,36 @@ html(ng-app="PublicApp")
 	head
 		title Public site
 		meta(charset="utf-8")
-		meta(name="description",content="website")
-		meta(name="keywords",content="website")
-		meta(name="author",content="Integral Systems Inc.")
+		meta(name="description" content="website")
+		meta(name="keywords" content="website")
+		meta(name="author" content="Integral Systems Inc.")
 		
 		link(rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.4/css/bootstrap.min.css")
 		link(rel="stylesheet" type="text/css" href="lib/ocModal.full.min.css")
-		link(rel="apple-touch-icon" 					href="/apple-touch-icon.png")
 		link(rel="stylesheet" type="text/css" href="lib/font-awesome-4.3.0/css/font-awesome.min.css")
-		link(rel="icon" 											href="/favicon.ico")
 		link(rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Days+One')
 		link(rel="stylesheet" type="text/css" href="bundle.css")
 	
-	body.app.noselect(ng-controller="IndexController",ng-cloak='')
+	body.app.noselect(ng-controller="IndexController" ng-cloak='')
 		.header
 			.logo ''
 			.title(ng-click="goto('')") Welcome to my website
 				
 			div.area.username(ng-if="user") {{user.username}}
 			div.area.balance(ng-if="user") ${{user.balance}}
-			div.button.pay(ng-if="user", ng-click="pay('Subscription',20)") Load balance
-			div.button.logout(ng-if="user", ng-click="logout()") Log-out
-			div.button.signup(ng-if="!user", ng-click="signup()") Sign-up
-			div.button.login(ng-if="!user", ng-click="login()") Log-in
+			div.button.pay(ng-if="user" ng-click="pay('Subscription',20)") Load balance
+			div.button.logout(ng-if="user" ng-click="logout()") Log-out
+			div.button.signup(ng-if="!user" ng-click="signup()") Sign-up
+			div.button.login(ng-if="!user" ng-click="login()") Log-in
 		.nav
 			.item(
-				ng-class="{active: path == 'features'}"
-				ng-click="goto('features')"
-			) Features
+				ng-class="{active: path == 'messaging'}"
+				ng-click="goto('messaging')"
+			) Messaging
 			.item(
-				ng-class="{active: path == 'contact'}"
-				ng-click="goto('contact')"
-				) Contact			
+				ng-class="{active: path == 'harvest'}"
+				ng-click="goto('harvest')"
+				) Harvest			
 				
 		.content(ng-view='')
 			

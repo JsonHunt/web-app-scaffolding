@@ -17,7 +17,6 @@
 		"express-mysql-session": "^0.3.2",
 		"express-session": "^1.10.4",
 		"fast-bricks": "^1.0.0",
-		"guid": "0.0.12",
 		"jade": "~1.9.1",
 		"mathjs": "^1.4.0",
 		"morgan": "~1.5.1",

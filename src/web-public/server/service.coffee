@@ -3,11 +3,11 @@ FastBricks = require 'fast-bricks'
 emailjs   = require "emailjs/email"
 uuid = require 'node-uuid'
 
-# fb = new FastBricks()
-# fb.loadConfig 'database-config.cson'
+fb = new FastBricks()
+fb.loadConfig 'database-config.cson'
 
-class PublicService
+class DatingService
 
 
 
-module.exports = new PublicService()
+module.exports = new DatingService()

@@ -1,6 +1,6 @@
-doctype html
-html
-	header
-		
-	body
-		div There was an error
+extends layout
+
+block content
+  h1= message
+  h2= error.status
+  pre #{error.stack}
