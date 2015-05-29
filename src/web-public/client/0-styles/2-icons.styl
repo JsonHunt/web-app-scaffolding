@@ -1,0 +1,46 @@
+i.fa
+	@extends .center
+	width 30px
+	height 30px
+	&.medium
+		width 50px
+		height 50px
+	&.large
+		width 70px
+		height 70px
+	&.left
+		border-right 1px solid white
+	&.right
+		border-left 1px solid white
+	&[ng-click]:hover:not(.disabled)
+		background-color $light
+
+// .float
+// 	i.fa
+// 		border 1px solid $dark
+// 		border-radius 4px
+// 		margin 1px
+
+.float
+	position absolute
+	&.top
+		top 5px
+	&.bottom
+		bottom 5px
+	&.left
+		left 5px
+	&.right
+		right 5px
+	&.row.right
+		right 10px
+	i.fa
+		@extends .center
+		color black
+		background-color white
+		border 1px solid black
+		width 25px
+		height 25px
+		border-radius 4px
+		margin 2px
+		&.active
+			background-color $medium

@@ -1,0 +1,167 @@
+.provider-profile.panel.fill
+	.header
+		i.fa.fa-chevron-left(ng-click="gotoPage('search')")
+		.title Profil
+		i.fa.fa-edit(ng-hide="editing" ng-click="toggleEdit()")
+		i.fa.fa-check(ng-show="editing" ng-click="save()")
+	.sub-header.row
+		.column.fill
+			.provider-name {{person.name}}
+			.provider-title {{person.title}} ({{person.location.name}})
+		.row.social
+			i.social-icon.fa.fa-2x.fa-facebook(ng-click="fb = !fb")
+			i.social-icon.fa.fa-2x.fa-twitter
+			i.social-icon.fa.fa-2x.fa-google-plus
+			img.social-icon(src="img/location-icon.png")
+			input.edit-fb(ng-if="fb" model="person.facebook")
+	.body
+		.bar 
+			.title Zdjecia
+			label.file-upload(ng-if="editing")
+				input(
+					type='file'
+					nv-file-select=''
+					uploader='uploader'
+				)
+				i.fa.fa-upload
+			
+		.row.images.border
+			div(ng-if="person.pictures.length == 0") Brak zdjec
+			div.photo-strip(ng-repeat="pic in person.pictures track by $index")
+				img.fill.thumb(ng-src="{{pic.url}}")
+				.float.bottom.right
+					i.remove-image-icon.fa.fa-trash(ng-if="editing")
+													
+		.space-lg
+		.bar
+			.title Opis			
+		.row.border.pad
+			.fill(ng-if="!editing") {{person.description}}
+			textarea.fill(ng-if="editing" msd-elastic='' ng-model="person.description")
+		
+		.space-lg
+		.row
+			.column.fill
+				.bar
+					.title Kontakt
+					i.fa.fa-plus(
+						ng-if="editing" 
+						ng-click="newContact()"
+					)
+				.list.border
+					.item.border(
+						ng-repeat="contact in person.contacts track by $index"
+					)
+						.row.pad.fill(ng-if="!editing")
+							.w200 {{contact.type}}
+							.fill {{contact.value}}
+						
+						.row.pad-half.fill(ng-if="editing")
+							select.w200(ng-model="contact.type")
+								option Telefon
+								option Email
+							input.contact.fill(ng-model="contact.value")
+							i.fa.fa-trash(ng-click="deleteContact(contact,$index)")
+			.space-lg
+			.column.fill
+				#location-bar.bar
+					.title Lokacja
+				input#location-search.border(
+					ng-if="editing"
+					placeholder="Miasto, dzielnica, osiedle, etc."
+					g-places-autocomplete=''
+					force-selection="true"
+					ng-model="search.places"
+				)
+				img.border(ng-show="person.location" ng-src="{{getMapURL()}}")
+			
+		.space-lg
+		.row
+			.column.fill
+				.bar
+					.title Uslugi	
+					i.fa.fa-plus(
+						ng-if="editing" 
+						ng-click="newService()"
+					)
+				.list.border
+					.item.border(ng-repeat="service in person.services track by $index")
+						.row.fill(ng-if="!editing")
+							.title.fill {{service.name}}
+							.user-rating
+								i.fa.fa-thumbs-o-up 
+								span 25
+							.user-rating
+								i.fa.fa-thumbs-o-down
+								span 5
+							
+						.row.pad-half.fill(ng-if="editing")
+							input.fill(ng-model="service.name")
+							i.fa.fa-trash(
+								ng-click="deleteService(service,$index)"
+							)
+		
+			.space-lg
+			.column.fill
+				.bar
+					.title Cennik	Uslug	
+					i.fa.fa-plus(
+						ng-if="editing" 
+						ng-click="newPrice()"
+					)
+				.list.border
+					.item.border(
+						ng-repeat="price in person.prices track by $index"
+					)
+						.row.pad.fill(ng-if="!editing")
+							.fill {{price.name}}
+							.price.w100 {{price.value}}
+						.row.pad-half.fill(ng-if="editing")
+							input.fill(ng-model="price.name")
+							input.price.w200(ng-model="price.value")
+							i.fa.fa-trash(
+								ng-click="deletePrice(price,$index)"
+							)
+						
+					
+		
+		.space-lg
+		.row
+			.column.fill
+				.bar
+					.title Godziny
+					i.fa.fa-plus(ng-click="newHour()")
+				.list.border
+					.item.border(
+						ng-repeat="hour in person.hours track by $index"
+					)
+						.row.fill.pad(ng-if="!editing")
+							.fill() {{hour.name}}
+							.w200.hour(ng-if="!editing") {{hour.value}}
+						.row.fill.pad-half(ng-if="editing")
+							input.fill(ng-model="hour.name")
+							input.hour.w200(ng-model="hour.value")
+							i.fa.fa-trash(
+								ng-click="deleteHour(hour,$index)"
+							)
+			
+			.space-lg
+			div(
+				ng-include="'provider-profile/calendar/calendar.html'"
+				ng-controller="calendarController"
+			)
+		
+		.space-lg
+		.bar
+			.title Komentarze klientow (25)
+		.list.border
+			.item: .title Polecam
+			.item: .title Bardzo dobra kobieta
+				
+			
+			
+				
+			
+					
+			
+			

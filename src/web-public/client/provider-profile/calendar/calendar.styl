@@ -1,0 +1,64 @@
+$dayWidth = 50
+$monthWidth = ((7*$dayWidth)/2)
+$yearWidth = ((7*$dayWidth)/4)
+
+.modal .modal-dialog .modal-content.calendar-modal
+	width initial
+
+.calendar-directive
+	.calendar-header
+		.month, .year, .prev-year, .next-year, .prev-month, .next-month
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 10px;
+			border-bottom none
+			border-top: 1px solid $dark
+			border-right 1px solid $light
+
+		.prev-year, .prev-month
+			border-left 1px solid $dark
+		.next-year, .next-month
+			border-right 1px solid $dark
+		.next-month
+			margin-right: 2px
+
+	.calendar-weekdays
+		background-color $dark
+		min-height 30px
+		color white
+		.day-name
+			padding 5px 10px
+
+	.calendar-days-of-month
+		.week
+			.day
+				background-color #ccc
+				border-left: 1px solid #aaa
+				border-bottom: 1px solid #aaa
+				padding 5px
+				width: $dayWidth px
+				height: $dayWidth px
+				position: relative
+				.past
+					position: absolute;
+					top: 0px;
+					left: 0px;
+					width: 100%;
+					opacity: 0.2;
+				&:last-child
+					border-right: 1px solid #aaa
+				&:hover
+					background-color $light
+				&.enabled
+					background-color white
+				&.available
+					color: green
+					position absolute
+					bottom 0px
+					right 0px
+				.today
+					font-size x-small
+					font-weight bold
+				&.selected
+					background-color #8CFF8D

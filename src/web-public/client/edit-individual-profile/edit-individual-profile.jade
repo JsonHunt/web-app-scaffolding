@@ -1,0 +1,110 @@
+.edit-provider-profile.panel.fill
+	.header
+		i.fa.fa-chevron-left(ng-click="gotoPage('search')")
+		.title Twoj Profil
+	.sub-header.row
+		.column.fill
+			.provider-name: input(value='Kasia' placeholder="Twoje imie")
+			.provider-title: input(value="dupencja" placeholder="Twoja profesja")
+		.row
+			i.social-icon.fa.fa-2x.fa-facebook
+			i.social-icon.fa.fa-2x.fa-twitter
+			i.social-icon.fa.fa-2x.fa-google-plus
+	.body
+		.bar: .title Zdjecia
+		.row.images.border
+			img.fill.thumb(border=0)
+			img.fill.thumb(border=0)
+			img.fill.thumb(border=0)
+			img.fill.thumb(border=0)
+		.row
+			.button(value="Dodaj nowe zdjecie")
+		
+		.space-lg
+		.bar: .title Opis
+		.border.pad: textarea.description(placeholder="Napisz cos o sobie")
+		
+		.space-lg
+		.bar: .title Kontakt
+		.table
+			.row
+				.col.w200.pad 
+					select.full
+						option Telefon
+						option Email
+				.col.fill.pad: input.fill(value='905 921 5199')
+				.col: i.fa.fa-trash
+			.row
+				.col.w200.pad
+					select.full
+						option Telefon
+						option Email
+				.col.fill.pad: input.fill(value="kasia@serveus.com")
+				.col: i.fa.fa-trash
+			.row
+				.col
+					.button Dodaj nowy kontakt
+		
+		.space-lg
+		.row
+			.column.fill
+				.bar
+					.title Uslugi			
+				.list.border
+					.item
+						.title Cleaning
+						.user-rating
+							i.fa.fa-thumbs-o-up 
+							span 25
+						.user-rating
+							i.fa.fa-thumbs-o-down
+							span 5
+					.item: .title Ironing
+					.item: .title Babysitting
+					.item: .title Shovelling snow
+		
+			.space-lg
+			.column.fill
+				.bar
+					.title Cennik			
+				.table
+					.row
+						.col.w200 Godzina u ciebie
+						.col.fill 200 zl
+					.row
+						.col.w200 Godzina u mnie
+						.col.fill 150 zl
+					.row
+						.col.w200 Dodatkowe dziecko
+						.col.fill 50 zl/godz
+		
+		.space-lg
+		.row
+			.column.fill
+				.bar
+					.title Godziny
+				.table
+					.row
+						.col.w200 Poniedzialek
+						.col.fill 10 - 23
+					.row
+						.col.w200 Wtorek
+						.col.fill 12 - 23
+			
+			.space-lg
+			.column.fill
+				.bar
+					.title Kalendaz na Maj 2015
+					i.fa.fa-chevron-left
+					i.fa.fa-chevron-right
+				.table
+					.header
+						.col.fill Po
+						.col.fill Wt
+						.col.fill Sr
+						.col.fill Cz
+						.col.fill Pt
+						.col.fill So
+						.col.fill Ni
+					.row
+		

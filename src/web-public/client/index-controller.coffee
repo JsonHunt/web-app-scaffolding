@@ -1,9 +1,18 @@
 mod = require 'web-app-modules/gen/client'
 
-ctr = module.exports = ($scope,$location,$ocModal,$http,$modal,$rootScope) ->
+ctr = module.exports = ($scope,$location,$ocModal,$http,$modal,$rootScope, $sce) ->
 	###
 	## sourceURL=hello.js
 	###
+	$scope.back = ()->
+		window.history.back()
+
+	$scope.log = (x)->
+		if _.isObject x
+			console.log JSON.stringify(x,null,2)
+		else
+			console.log x.valueOf()
+
 	$scope.getLogin = ()->
 		$http.get "/module/auth/getLogin"
 		.success (data,status,headers,config)->
@@ -14,7 +23,13 @@ ctr = module.exports = ($scope,$location,$ocModal,$http,$modal,$rootScope) ->
 
 	$scope.goto = (path)->
 		$scope.path = path
+		console.log "Going to #{path}"
 		$location.path(path)
+
+	$scope.gotoPage = (p)->
+		$scope.page = p
+
+	$scope.isPage = (p)-> $scope.page is p
 
 	$scope.login = ()->
 
@@ -43,4 +58,4 @@ ctr = module.exports = ($scope,$location,$ocModal,$http,$modal,$rootScope) ->
 			delete $rootScope.user
 			$location.path('/')
 
-ctr.$inject = [ '$scope','$location','$ocModal','$http','$modal']
+ctr.$inject = [ '$scope','$location','$ocModal','$http','$modal','$rootScope','$sce']

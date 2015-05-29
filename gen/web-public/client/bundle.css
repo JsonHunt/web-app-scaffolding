@@ -1,3 +1,99 @@
+.row,
+.bar,
+.panel >.header,
+.panel >.footer,
+.table >.header,
+.list .item,
+.provider-profile .user-rating {
+  display: flex;
+  flex-direction: row;
+}
+.column,
+.app >.content,
+.panel,
+.list,
+.form,
+ui-gmap-google-map,
+ui-gmap-google-map .angular-google-map {
+  display: flex;
+  flex-direction: column;
+}
+.center,
+i.fa,
+.float i.fa,
+.provider-profile .user-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.center-v,
+.table >.header .col,
+.table >.row .col,
+.list .item,
+.form .row .label,
+.form .column .label {
+  display: flex;
+  align-items: center;
+}
+.center-h {
+  display: flex;
+  justify-content: center;
+}
+.pad {
+  padding: 10px;
+}
+.pad-half {
+  padding: 5px;
+}
+.space {
+  width: 2px;
+  height: 2px;
+}
+.space-lg {
+  width: 10px;
+  height: 10px;
+}
+.fill,
+.app >.content,
+.bar >.title,
+.panel >.header >.title,
+.panel >.body,
+.list .item .title,
+ui-gmap-google-map,
+ui-gmap-google-map .angular-google-map,
+ui-gmap-google-map .angular-google-map .angular-google-map-container {
+  flex: 1;
+}
+.float {
+  position: absolute;
+}
+.float.top {
+  top: 10px;
+}
+.float.bottom {
+  bottom: 10px;
+}
+.float.left {
+  left: 10px;
+}
+.float.right {
+  right: 10px;
+}
+.float.row.left {
+  left: 25px;
+}
+.float.row.right {
+  right: 25px;
+}
+.w200 {
+  width: 200px;
+}
+.w300 {
+  width: 300px;
+}
+.w400 {
+  width: 400px;
+}
 html {
   height: 100%;
 }
@@ -5,6 +101,23 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+}
+p,
+div {
+  cursor: default;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.border {
+  border: 1px solid #6fb3f7;
 }
 .app {
   display: flex;
@@ -67,21 +180,20 @@ body {
 }
 .app >.nav .item {
   padding: 10px 30px;
-  color: #fff;
+  color: $darki;
   text-decoration: none;
   cursor: pointer;
   border-left: 1px solid #6fb3f7;
 }
 .app >.nav .item:hover {
   background-color: #6fb3f7;
-  color: #fff;
+  color: $darki;
 }
 .app >.nav .item.active {
   background-color: #007af4;
-  color: #fff;
+  color: $darki;
 }
 .app >.content {
-  flex: 1;
   padding: 10px;
 }
 .app >.footer {
@@ -93,48 +205,140 @@ body {
   text-align: center;
   border-top: 1px solid #6fb3f7;
 }
-.noselect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+i.fa {
+  width: 30px;
+  height: 30px;
 }
-.btn {
-  min-width: 100px;
+i.fa.medium {
+  width: 50px;
+  height: 50px;
+}
+i.fa.large {
+  width: 70px;
+  height: 70px;
+}
+i.fa.left {
+  border-right: 1px solid #fff;
+}
+i.fa.right {
+  border-left: 1px solid #fff;
+}
+i.fa[ng-click]:hover:not(.disabled) {
+  background-color: #6fb3f7;
+}
+.float {
+  position: absolute;
+}
+.float.top {
+  top: 5px;
+}
+.float.bottom {
+  bottom: 5px;
+}
+.float.left {
+  left: 5px;
+}
+.float.right {
+  right: 5px;
+}
+.float.row.right {
+  right: 10px;
+}
+.float i.fa {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  margin: 2px;
+}
+.float i.fa.active {
+  background-color: #3696f7;
+}
+.bar,
+.panel >.header {
+  min-height: 30px;
+  background-color: #6fb3f7;
+}
+.bar >.title,
+.panel >.header >.title {
+  padding: 5px 10px;
+  color: #fff;
+  font-weight: bold;
+}
+.bar >i.fa,
+.panel >.header >i.fa {
+  color: #fff;
 }
 .panel {
-  border: 1px solid #3696f7;
-  margin: 10px 0;
+  border: 1px solid #007af4;
 }
-.panel .header {
-  background-color: #3696f7;
+.panel >.header {
+  border-bottom: 1px solid #fff;
+}
+.panel >.sub-header {
+  padding: 10px;
+  border-bottom: 1px solid #007af4;
+}
+.panel >.body {
+  overflow-y: auto;
+  position: relative;
+  padding: 10px;
+}
+.panel >.footer {
+  padding: 5px;
+  text-align: center;
   color: #fff;
-  padding: 10px;
+  background-color: #007af4;
 }
-.panel .body {
-  padding: 10px;
-  text-align: left;
+.table >.header .col {
+  font-weight: bold;
+  text-align: center;
+  border-left: 1px solid #6fb3f7;
 }
-.panel .footer {
-  border-top: 1px solid #6fb3f7;
-  padding: 10px;
+.table >.header .col:last-child {
+  border-right: 1px solid #6fb3f7;
+}
+.table >.row {
+  border-bottom: 1px solid #6fb3f7;
+}
+.table >.row .col {
+  border-left: 1px solid #6fb3f7;
+}
+.table >.row .col:last-child {
+  border-right: 1px solid #6fb3f7;
 }
 table {
   border: 1px solid #3696f7;
-  border-radius: 5px;
+  border-collapse: collapse;
 }
 table tr th {
   background-color: #3696f7;
   font-weight: normal;
   text-align: inherit;
-  color: #fff;
+  color: $darki;
   padding: 10px;
 }
 table tr td {
   padding: 10px;
   border: 1px solid #6fb3f7;
+}
+.list {
+  overflow-y: auto;
+}
+.list .item.border {
+  border: none;
+  border-bottom: 1px solid #6fb3f7;
+}
+.list .item.border:last-child {
+  border-bottom: none;
+}
+.list .item.border[ng-click]:hover:not(.disabled) {
+  background-color: #6fb3f7;
+}
+.list .item .title {
+  padding: 10px;
 }
 .middle {
   margin: 10px auto;
@@ -154,4 +358,212 @@ table tr td {
 .section.header {
   padding: 10px 0 5px 0;
   border-bottom: 1px solid #6fb3f7;
+}
+.btn {
+  min-width: 100px;
+}
+i.fa.social-icon,
+.social-icon {
+  border: 1px solid #6fb3f7;
+  border-radius: 4px;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  margin-left: 2px;
+}
+.button {
+  padding: 10px 20px;
+  border: 1px solid #6fb3f7;
+  background-color: #111 px solid #6fb3f7;
+  border-radius: 4px;
+  margin: 2px;
+}
+input {
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #6fb3f7;
+  border-left: 1px solid #6fb3f7;
+}
+select.full {
+  flex: 1;
+  align-self: stretch;
+}
+select {
+  border: none;
+  border-bottom: 1px solid #6fb3f7;
+  border-left: 1px solid #6fb3f7;
+}
+.form {
+  padding: 10px;
+}
+.form .row .label {
+  padding: 5px;
+}
+.form .column {
+  margin-bottom: 10px;
+}
+.form .column .label {
+  padding-bottom: 2px;
+}
+label.file-upload {
+  color: #fff;
+}
+label.file-upload input {
+  position: fixed;
+  top: -1000px;
+}
+.provider-profile .provider-name {
+  font-size: 30px;
+}
+.provider-profile .provider-title {
+  font-weight: bold;
+  padding-left: 2px;
+}
+.provider-profile .images {
+  padding: 10px;
+}
+.provider-profile img.thumb {
+  width: 220px;
+  height: 170px;
+  border-right: 1px solid #6fb3f7;
+}
+.provider-profile img.thumb:last-child {
+  border-right: none;
+}
+.provider-profile .user-rating {
+  border: 1px solid #6fb3f7;
+  padding: 2px;
+  padding-right: 10px;
+  margin: 2px;
+  margin-left: 0;
+}
+.provider-profile .description {
+  width: 100%;
+}
+.app {
+  max-width: 1000px;
+  border: 1px solid #6fb3f7;
+  margin: auto;
+}
+.modal .modal-dialog .modal-content.calendar-modal {
+  width: initial;
+}
+.calendar-directive .calendar-header .month,
+.calendar-directive .calendar-header .year,
+.calendar-directive .calendar-header .prev-year,
+.calendar-directive .calendar-header .next-year,
+.calendar-directive .calendar-header .prev-month,
+.calendar-directive .calendar-header .next-month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-bottom: none;
+  border-top: 1px solid #007af4;
+  border-right: 1px solid #6fb3f7;
+}
+.calendar-directive .calendar-header .prev-year,
+.calendar-directive .calendar-header .prev-month {
+  border-left: 1px solid #007af4;
+}
+.calendar-directive .calendar-header .next-year,
+.calendar-directive .calendar-header .next-month {
+  border-right: 1px solid #007af4;
+}
+.calendar-directive .calendar-header .next-month {
+  margin-right: 2px;
+}
+.calendar-directive .calendar-weekdays {
+  background-color: #007af4;
+  min-height: 30px;
+  color: #fff;
+}
+.calendar-directive .calendar-weekdays .day-name {
+  padding: 5px 10px;
+}
+.calendar-directive .calendar-days-of-month .week .day {
+  background-color: #ccc;
+  border-left: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+.calendar-directive .calendar-days-of-month .week .day .past {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  opacity: 0.2;
+}
+.calendar-directive .calendar-days-of-month .week .day:last-child {
+  border-right: 1px solid #aaa;
+}
+.calendar-directive .calendar-days-of-month .week .day:hover {
+  background-color: #6fb3f7;
+}
+.calendar-directive .calendar-days-of-month .week .day.enabled {
+  background-color: #fff;
+}
+.calendar-directive .calendar-days-of-month .week .day.available {
+  color: #008000;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+.calendar-directive .calendar-days-of-month .week .day .today {
+  font-size: x-small;
+  font-weight: bold;
+}
+.calendar-directive .calendar-days-of-month .week .day.selected {
+  background-color: #8cff8d;
+}
+.provider-profile .provider-name {
+  font-size: 30px;
+}
+.provider-profile .provider-title {
+  font-weight: bold;
+  padding-left: 2px;
+}
+.provider-profile .images {
+  padding: 10px;
+}
+.provider-profile img.thumb {
+  width: 220px;
+  height: 170px;
+  border-right: 1px solid #6fb3f7;
+}
+.provider-profile img.thumb:last-child {
+  border-right: none;
+}
+.provider-profile .user-rating {
+  border: 1px solid #6fb3f7;
+  padding: 2px;
+  padding-right: 10px;
+  margin: 2px;
+  margin-left: 0;
+}
+.provider-profile .price,
+.provider-profile .hour {
+  text-align: right;
+}
+.provider-profile .price,
+.provider-profile .hour,
+.provider-profile .contact {
+  margin-left: -1px;
+}
+.provider-profile .social {
+  position: relative;
+}
+.provider-profile .edit-fb {
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+}
+.provider-profile .photo-strip {
+  position: relative;
+}
+.provider-profile #location-search {
+  border: 1px solid #6fb3f7;
 }

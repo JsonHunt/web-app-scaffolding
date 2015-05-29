@@ -1,0 +1,22 @@
+.calendar-directive.column
+	.bar
+		.title {{monthNames[month]}}, {{year}}
+		i.fa.fa-chevron-left(ng-click="prevMonth()")
+		i.fa.fa-chevron-right(ng-click="nextMonth()")
+	.day-mode.column
+		.calendar-weekdays.row
+			.day-name.fill(ng-repeat="day in weekDays") {{day}}
+		.calendar-days-of-month.column
+			.week.row.fix(ng-repeat="week in weeks")
+				
+				.day(
+					ng-class="{past: day.past, selected: day.selected, enabled:day.enabled}" 
+					ng-repeat="day in week.days" 
+					ng-click="selectDay(day)"
+				) {{day.number}} 
+					img.past(ng-if="day.past" src="img/past.png")
+					i.available.fa.fa-check(ng-if="day.selected")
+					.today(ng-if="day.today") TODAY
+					
+	
+			

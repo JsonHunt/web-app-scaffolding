@@ -6,12 +6,13 @@
     <meta name="description" content="website">
     <meta name="keywords" content="website">
     <meta name="author" content="Integral Systems Inc.">
-    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:400,700,900">
     <link rel="stylesheet" type="text/css" href="lib/ocModal.full.min.css">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="stylesheet" type="text/css" href="lib/font-awesome-4.3.0/css/font-awesome.min.css">
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Days+One">
+    <link rel="stylesheet" type="text/css" href="lib/autocomplete.min.css">
     <link rel="stylesheet" type="text/css" href="bundle.css">
   </head>
   <body ng-controller="IndexController" ng-cloak="" class="app noselect">
@@ -27,7 +28,8 @@
     </div>
     <div class="nav">
       <div ng-class="{active: path == 'features'}" ng-click="goto('features')" class="item">Features</div>
-      <div ng-class="{active: path == 'contact'}" ng-click="goto('contact')" class="item">Contact			</div>
+      <div ng-class="{active: path == 'contact'}" ng-click="goto('contact')" class="item">Contact	</div>
+      <div ng-class="{active: path == 'provider-profile'}" ng-click="goto('provider-profile')" class="item">Twoj Profil			</div>
     </div>
     <div ng-view="" class="content"></div>
     <div class="footer">Copyright 2015 Integral Systems Inc.</div>
@@ -36,11 +38,16 @@
     <script type="text/javascript" src="https://code.angularjs.org/1.3.15/angular-route.min.js"></script>
     <script type="text/javascript" src="http://arshaw.com/xdate/downloads/0.8/xdate.js"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/1.4.0/math.min.js"></script>
-    <script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
-    <script type="text/javascript" src="lib/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/lodash.js"></script>
+    <script type="text/javascript" src="lib/angular-google-maps.min.js"></script>
     <script type="text/javascript" src="lib/ui-bootstrap-tpls-0.11.0.js"></script>
     <script type="text/javascript" src="lib/ocModal.min.js"></script>
     <script type="text/javascript" src="https://checkout.stripe.com/checkout.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <script type="text/javascript" src="lib/ng-map.min.js"></script>
+    <script type="text/javascript" src="lib/autocomplete.min.js"></script>
+    <script type="text/javascript" src="lib/angular-file-upload.min.js"></script>
+    <script type="text/javascript" src="lib/elastic.js"></script>
     <script type="text/javascript" src="bundle.js"></script>
   </body>
 </html>

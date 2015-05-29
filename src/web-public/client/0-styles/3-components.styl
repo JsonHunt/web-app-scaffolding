@@ -1,0 +1,124 @@
+.bar
+	@extends .row
+	min-height 30px
+	background-color $light
+	>.title
+		@extends .fill
+		padding 5px 10px
+		color white
+		font-weight bold
+	>i.fa
+		color white
+
+.panel
+	@extends .column
+	border 1px solid $dark
+	>.header
+		border-bottom 1px solid white
+		@extends .bar
+		>.title
+			@extends .fill
+	>.sub-header
+		padding 10px
+		border-bottom 1px solid $dark
+
+	>.body
+		overflow-y auto
+		position relative
+		@extends .fill
+		padding 10px
+
+	>.footer
+		@extends .row
+		padding 5px
+		text-align center
+		color white
+		background-color $dark
+
+.table
+	>.header
+		@extends .row
+		.col
+			@extends .center-v
+			font-weight bold
+			text-align: center
+			border-left 1px solid $light
+			&:last-child
+				border-right 1px solid $light
+	>.row
+		border-bottom 1px solid $light
+		.col
+			@extends .center-v
+			border-left 1px solid $light
+			&:last-child
+				border-right 1px solid $light
+
+table
+	border: 1px solid $medium
+	border-collapse collapse
+	tr
+		th
+			background-color $medium
+			font-weight: normal
+			text-align: inherit
+			color: $darki
+			padding 10px
+
+		td
+			padding: 10px
+			border: 1px solid $light
+
+.list
+	@extends .column
+	overflow-y auto
+	.item
+		@extends .row, .center-v
+		&.border
+			border none
+			border-bottom 1px solid $light
+			&:last-child
+				border-bottom none
+			&[ng-click]:hover:not(.disabled)
+				background-color $light
+		.title
+			@extends .fill
+			padding 10px
+
+
+.middle
+	margin 10px auto
+	width 500px
+	text-align: center
+
+.form-group
+	label
+		margin 10px 0 2px 0
+		font-size: 12px
+
+.error
+	padding: 10px
+	color: red
+	border 1px solid red
+	margin: 10px 0
+
+.section.header
+	padding 10px 0 5px 0
+	border-bottom: 1px solid $light
+
+.btn
+	min-width 100px
+
+i.fa.social-icon, .social-icon
+	border: 1px solid $light
+	border-radius: 4px;
+	padding: 10px;
+	width: 50px;
+	height 50px
+	margin-left 2px
+
+.button
+	padding 10px 20px
+	border 1px solid $light
+	background-color #1px solid $light
+	border-radius 4px
+	margin 2px

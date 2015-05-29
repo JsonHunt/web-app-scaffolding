@@ -1,2 +1,49 @@
 
-<div>Contact Page</div>
+<div class="tab-bar">
+  <div ng-click="page='search'" ng-class="{active: page == 'search'}" class="tab"></div>
+  <div ng-click="page='account'" ng-class="{active: page == 'account'}" class="tab"></div>
+</div>
+<div ng-show="isPage('provider-profile')" ng-include="'./../provider-profile/provider-profile.html'" ng-controller="providerProfileController" class="column fill"></div>
+<div ng-show="isPage('business-profile')" ng-include="'./../business-profile/business-profile.html'" ng-controller="businessProfileController" class="column fill"></div>
+<div ng-show="isPage('search')" class="row fill">
+  <div ng-show="area" class="panel w200">
+    <div class="header"><i class="fa fa-chevron-left"></i>
+      <div class="title">{{area}}</div>
+    </div>
+    <div class="space"></div>
+    <div class="bar">
+      <div class="title">Agencje</div>
+    </div>
+    <div class="list">
+      <div class="item"> 
+        <div class="title">Anioleczki</div>
+      </div>
+      <div ng-click="gotoPage('business-profile')" class="item">
+        <div class="title">Platynowe dziewczyny</div>
+      </div>
+    </div>
+    <div class="space"></div>
+    <div class="bar">
+      <div class="title">Niezrzeszone</div>
+    </div>
+    <div class="list">
+      <div ng-click="gotoPage('provider-profile')" class="item">
+        <div class="title">Kasia</div>
+      </div>
+      <div class="item">
+        <div class="title">Monika	</div>
+      </div>
+    </div>
+  </div>
+  <div ng-show="area" class="space"></div>
+  <div class="panel fill">
+    <div class="header">
+      <div class="title">Znajdz</div><i ng-click="options()" class="fa fa-bars"></i>
+    </div>
+    <div class="column fill pad">
+      <input id="location-search" placeholder="Lokacja (kraj, miasto, dzielnica, etc)" g-places-autocomplete="" force-selection="true" ng-model="search.places"/>
+      <div class="space"></div>
+      <div id="mapCanvas" class="fill"></div>
+    </div>
+  </div>
+</div>

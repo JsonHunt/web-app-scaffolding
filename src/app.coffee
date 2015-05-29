@@ -49,7 +49,9 @@ authorizeUser = (req,res,next)->
 		res.send "NOT AUTHENTICATED"
 
 app.use express.static(path.join(__dirname, 'web-public/client'))
-app.use '/rest', authorizeUser, require './web-public/server/router'
+app.use '/graphic', express.static(path.join(__dirname, './../graphicFiles'))
+
+app.use '/rest', require './web-public/server/router'
 
 app.use '/module/auth', mod.auth
 app.use '/module/payment', mod.payment

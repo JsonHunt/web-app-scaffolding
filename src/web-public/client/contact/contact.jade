@@ -1,1 +1,52 @@
-div Contact Page
+.tab-bar
+	.tab(ng-click="page='search'" ng-class="{active: page == 'search'}")
+	.tab(ng-click="page='account'" ng-class="{active: page == 'account'}")
+
+div.column.fill(
+	ng-show="isPage('provider-profile')"
+	ng-include="'./../provider-profile/provider-profile.html'"
+	ng-controller="providerProfileController"
+)
+div.column.fill(
+	ng-show="isPage('business-profile')"
+	ng-include="'./../business-profile/business-profile.html'"
+	ng-controller="businessProfileController"
+)
+
+.row.fill(ng-show="isPage('search')")
+	.panel.w200(ng-show="area")
+		.header
+			i.fa.fa-chevron-left
+			.title {{area}}
+		.space
+		
+		.bar: .title Agencje
+		.list
+			.item 
+				.title Anioleczki
+			.item(ng-click="gotoPage('business-profile')")
+				.title Platynowe dziewczyny
+		.space
+		.bar: .title Niezrzeszone
+		.list
+			.item(ng-click="gotoPage('provider-profile')")
+				.title Kasia
+			.item
+				.title Monika	
+
+	.space(ng-show="area")
+
+	.panel.fill
+		.header
+			.title Znajdz
+			i.fa.fa-bars(ng-click="options()")
+		.column.fill.pad
+			input#location-search(
+				placeholder="Lokacja (kraj, miasto, dzielnica, etc)"
+				g-places-autocomplete=''
+				force-selection="true"
+				ng-model="search.places"
+			)
+			.space
+			div#mapCanvas.fill
+				
