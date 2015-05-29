@@ -1,0 +1,35 @@
+h2 MESSAGING
+	label
+		input(type='checkbox', ng-model='settings.locationFilter', ng-change='saveSettings()') 
+		| Filter location
+		input(ng-model='settings.locations', style='width: 100%; padding: 3px; margin: 3px', ng-blur='saveSettings()')
+		img(ng-src='{{settings.fullImage}}', ng-show='settings.fullImage', style='position: fixed; top: 0; right: 0; width: 400px')
+		div(ng-show='settings.fullChat', style='position: fixed; top: 0; right: 0; width: 400px; border: 1px solid #000; background-color: #FFF; padding: 10px')
+			div(ng-repeat='msg in settings.fullChat', style='border-top: 1px solid #666; padding: 5px')
+				img(ng-src='{{msg.senderAvatar}}', style='float: left; width: 30px; margin-right: 5px')
+				div {{msg.timestamp}}
+				div {{msg.text}}
+		div {{message}}
+		div(ng-repeat='member in members track by member.id', style='border: 1px solid #666;')
+			table(width='100%')
+				tr(valign='top')
+					td(width='1px')
+						img(ng-src='{{member.avatar}}', style='width: 153px; padding: 5px')
+						img(ng-repeat='url in member.photos', ng-src='{{url}}', style='width: 50px; height: 50px; margin-left: 1px', ng-mouseenter='settings.fullImage = url', ng-mouseleave='settings.fullImage = undefined')
+					td
+						button(ng-click='block(member)', style='float: right; padding: 5px') Block
+						h2(style='margin: 5px') {{member.name}}, {{member.age}}; {{member.location}}
+						div(style='margin-bottom: 5px') {{member.about}}
+							div(
+								ng-if='member.messages.length > 2' 
+								style='background-color: #eee; border: 1px solid #ddd',
+								ng-mouseenter='settings.fullChat = member.messages'
+								ng-mouseleave='settings.fullChat = undefined'
+							) more
+							div(ng-repeat='msg in getNewMessages(member)', style='border-top: 1px solid #666; padding: 5px')
+								img(ng-src='{{msg.senderAvatar}}', style='float: left; width: 30px; margin-right: 5px')
+								div {{msg.timestamp}}
+								div {{msg.text}}
+							textarea(ng-model='response[member.id]', style='width: 100%; margin: 2px')
+							div
+								button(ng-click='respond(member)') Send

@@ -1,0 +1,33 @@
+<h2>WEBSITES</h2>
+
+<div>Seeking Arrangement</div>
+<table>
+<tr>
+	<td>Login:</td>
+	<td><input ng-model="sa.settings.login">
+</tr>
+<tr>
+	<td>Password:</td>
+	<td><input type='password' ng-model="sa.settings.password">
+</tr>
+<tr>
+	<td></td>
+	<td><button ng-click="sa.save()">Save</button><div>{{sa.message}}</div>
+</tr>
+</table>
+
+<div>Plenty of Fish</div>
+<table>
+<tr>
+	<td>Login:</td>
+	<td><input ng-model="pof.settings.login">
+</tr>
+<tr>
+	<td>Password:</td>
+	<td><input type='password' ng-model="pof.settings.password">
+</tr>
+<tr>
+	<td></td>
+	<td><button ng-click="pof.save()">Save</button><div>{{pof.message}}</div>
+</tr>
+</table>

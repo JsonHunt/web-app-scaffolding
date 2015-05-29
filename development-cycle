@@ -1,5 +1,0 @@
-develop -> save file -> compile file
-
-build->
-  -> run save commands on node_modules ->
-    -> compile node_modules/web-app-modules/src/payments/client/**/*.coffee to gen/mod/payments/**/*.coffee

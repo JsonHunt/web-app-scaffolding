@@ -46,12 +46,12 @@ app.config ['$httpProvider','$routeProvider', ($httpProvider,$routeProvider) ->
 		templateUrl : 'home/home.html'
 		resolve: userPromise
 	.when '/contact',
-		controller : require './contact/contact'
-		templateUrl : '/contact/contact.html'
+		controller : require './messaging/messaging'
+		templateUrl : '/messaging/messaging.html'
 		resolve: userPromise
 	.when '/features',
-		controller : require './features/features'
-		templateUrl : '/features/features.html'
+		controller : require './messaging/messaging'
+		templateUrl : '/messaging/messaging.html'
 		resolve: userPromise
 	.when '/provider-profile',
 		controller : require './provider-profile/provider-profile'

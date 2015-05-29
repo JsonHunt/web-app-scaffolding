@@ -26,7 +26,7 @@ sessionStore = new SessionStore
 	port: 3306
 	user: 'root'
 	password: 'garsonka'
-	database: 'webapp'
+	database: 'dating'
 
 app.use(session({
 		key: 'session_cookie_name',

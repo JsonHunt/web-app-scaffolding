@@ -8,9 +8,7 @@
     <meta name="author" content="Integral Systems Inc.">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:400,700,900">
     <link rel="stylesheet" type="text/css" href="lib/ocModal.full.min.css">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="stylesheet" type="text/css" href="lib/font-awesome-4.3.0/css/font-awesome.min.css">
-    <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Days+One">
     <link rel="stylesheet" type="text/css" href="lib/autocomplete.min.css">
     <link rel="stylesheet" type="text/css" href="bundle.css">
@@ -27,9 +25,14 @@
       <div ng-if="!user" ng-click="login()" class="button login">Log-in</div>
     </div>
     <div class="nav">
+<<<<<<< HEAD
       <div ng-class="{active: path == 'features'}" ng-click="goto('features')" class="item">Features</div>
       <div ng-class="{active: path == 'contact'}" ng-click="goto('contact')" class="item">Contact	</div>
       <div ng-class="{active: path == 'provider-profile'}" ng-click="goto('provider-profile')" class="item">Twoj Profil			</div>
+=======
+      <div ng-class="{active: path == 'messaging'}" ng-click="goto('messaging')" class="item">Messaging</div>
+      <div ng-class="{active: path == 'harvest'}" ng-click="goto('harvest')" class="item">Harvest			</div>
+>>>>>>> 066aff37c6ad44a4d2b0b1f5bccc9125fec40840
     </div>
     <div ng-view="" class="content"></div>
     <div class="footer">Copyright 2015 Integral Systems Inc.</div>
